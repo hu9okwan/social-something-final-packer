@@ -12,6 +12,19 @@ locals {
     timestamp = regex_replace(timestamp(), "[- TZ:]", "")
 }
 
+variable "region" {
+    type = string
+    description = "The AWS region to make AMI in"
+    default = "us-west-2"
+}
+
+variable "log_group_name" {
+    type = string
+    description = "The name of the log group in CloudWatch"
+    default = "social-something-loggers"
+}
+
+
 source "amazon-ebs" "social-smt" {
 
     ami_name = "social-something-${local.timestamp}"
@@ -29,7 +42,7 @@ source "amazon-ebs" "social-smt" {
     }
 
     instance_type = "t2.micro"
-    region = "us-west-2"
+    region = "${var.region}"
     ssh_username = "ec2-user"
 }
 
@@ -50,4 +63,11 @@ build {
         destination = "/tmp/social-smt.service"
     }
 
+    provisioner "shell" {
+        script = "./app.sh"
+        environment_vars = [
+            "REGION=${var.region}",
+            "LOG_GROUP_NAME=${var.log_group_name}"
+        ]
+    }
 }
