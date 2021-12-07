@@ -17,3 +17,8 @@ cd ~/social_something_full && npm i --only=prod
 sudo mv /tmp/social-smt.service /etc/systemd/system/social-smt.service
 sudo systemctl enable social-smt.service
 sudo systemctl start social-smt.service
+
+
+sudo yum install -y https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
+sudo yum install -y mysql-community-server
+sudo systemctl start mysqld 
