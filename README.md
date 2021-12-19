@@ -10,9 +10,10 @@ An AMI is setup in the specified region. The AMI will have NodeJS, MySQL, and Cl
  
 ## Setup 
 1. Create root folder
-2. Download as .zip file from https://github.com/sam-meech-ward-bcit/social_something_full
-3. cd to root folder and clone this repo
-4. ``` cd social-something-final-packer ```
+2. cd to root folder
+4. Clone this repo
+5. Download as .zip file from https://github.com/sam-meech-ward-bcit/social_something_full and place in root folder
+6. ``` cd social-something-final-packer ```
 
 ## Usage
 Build with ``` packer build app.pkr.hcl ```
