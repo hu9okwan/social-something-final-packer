@@ -2,7 +2,7 @@
  
 This is a packer build for [Sam's Social Something App](https://github.com/sam-meech-ward-bcit/social_something_full). 
 
-An AMI is setup on the specified region. The AMI will have NodeJS, MySQL, and CloudWatch services started & enabled. 
+An AMI is setup in the specified region. The AMI will have NodeJS, MySQL, and CloudWatch services started & enabled. 
  
 ## Requirements
 - [Packer](https://www.packer.io/downloads)
